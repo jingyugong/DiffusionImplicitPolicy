@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
+  <title>Diffusion Implicit Policy for Unpaired Scene-aware Motion synthesis</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -52,21 +52,32 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Diffusion Implicit Policy for Unpaired Scene-aware Motion synthesis</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                  <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Jingyu Gong</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Chong Zhang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Fengqi Liu</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Ke Fan</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Qianyu Zhou</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Xin Tan</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Zhizhong Zhang</a><sup>1</sup>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yuan Xie</a><sup>1</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Lizhuang Ma</a><sup>1,2</sup>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                      <span class="author-block"><sup>1</sup>East China Normal University<br><sup>2</sup>Shanghai Jiao Tong University</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -81,17 +92,6 @@
                         <span>Paper</span>
                       </a>
                     </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
 
                   <!-- Github link -->
                   <span class="link-block">
@@ -121,20 +121,14 @@
     </div>
   </div>
 </section>
-
-
 <!-- Teaser video-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+    <div class="hero-body has-text-centered">
+        <img src="static/images/intro.jpg" width="75%"></img>
+        <h2 class="subtitle has-text-left">
+            <b>Explicit policy</b> is trained with paired motion-scene data given task to predict the final motion. <br> <b>Implicit policy</b> optimizes the motion from initialization accordingly. <br> <b>Diffusion policy</b> gradually denoise the motion based on current scene, task, and noised motion. <br> <b>Diffusion implicit policy</b> (ours) iteratively denoises and optimizes the motion to ensure motion naturalness, diversity, interaction plausibility simultaneously without need for any paired motion-scene data.
+        </h2>
     </div>
   </div>
 </section>
@@ -148,7 +142,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+           Human motion generation is a long-standing problem, and scene-aware motion synthesis has been widely researched recently due to its numerous applications. Prevailing methods rely heavily on paired motion-scene data whose quantity is limited. Meanwhile, it is difficult to generalize to diverse scenes when trained only on a few specific ones. Thus, we propose a unified framework, termed Diffusion Implicit Policy (DIP), for scene-aware motion synthesis, where paired motion-scene data are no longer necessary. In this framework, we disentangle human-scene interaction from motion synthesis during training and then introduce an interaction-based implicit policy into motion diffusion during inference. Synthesized motion can be derived through iterative diffusion denoising and implicit policy optimization, thus motion naturalness and interaction plausibility can be maintained simultaneously. The proposed implicit policy optimizes the intermediate noised motion in a GAN Inversion manner to maintain motion continuity and control keyframe poses though the ControlNet branch and motion inpainting. For long-term motion synthesis, we introduce motion blending for stable transitions between multiple sub-tasks, where motions are fused in rotation power space and translation linear space. The proposed method is evaluated on synthesized scenes with ShapeNet furniture, and real scenes from PROX and Replica. Results show that our framework presents better motion naturalness and interaction plausibility than cutting-edge methods. This also indicates the feasibility of utilizing the DIP for motion synthesis in more general tasks and versatile scenes.
           </p>
         </div>
       </div>
@@ -157,121 +151,157 @@
 </section>
 <!-- End paper abstract -->
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+<section class="section">
+    <div class="container is-max-desktop">
+      <!-- Method. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Pipeline & Method</h2>
+          <!-- Interpolating. -->
+            <div class="content has-text-justified">
+            <img src="./static/images/framework.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image"
+                 style="width: 100%; height: auto; display: block; margin: 0 auto;"></img>
+            <p>
+            The left subfigure indicates the overall pipeline of scene-aware motion synthesis. Any feasible command will be first decomposed into sub-task with action-object pairs. Then, we will synthesize the future motion according to historical motion and current sub-task. Last, the synthesized motions will be fused into the historical motion to obtain the final long-term motion. The right subfigure presents the framework of Diffusion Implicit Policy (DIP). In each iteration of the DIP, the diffusion model will denoise the motion and enable the synthesized motion to appear more <b>natural</b>, and implicit policy optimization from reward will endow the motion with <b>plausible</b> interaction. The random sampling step can help the framework synthesize motion with <b>diverse</b> styles.
+            </p>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
-  </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
 
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Method. -->
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Qualitative Results</h2>
+            </div>
         </div>
-      </div>
+
+        <div class="columns is-centered">
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">sofa</span> and <span style="color:brown">walk</span> over to the <span style="color:deepskyblue">stool</span>, then <span style="color:brown">sit</span> on <span style="color:deepskyblue">it</span>.</p></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/r-1.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">sofa</span> and <span style="color:brown">walk</span> over to another <span style="color:deepskyblue">sofa</span>, then <span style="color:brown">sit</span> on <span style="color:deepskyblue">it</span>.</p></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/r-2.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Walk</span> over to the <span style="color:deepskyblue">sofa</span>, and then <span style="color:brown">sit</span> on <span style="color:deepskyblue">it</span>.</p><br></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/r-3.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-centered">
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Walk</span> over to the <span style="color:deepskyblue">bed</span> and <span style="color:brown">sit</span> down on <span style="color:deepskyblue">it</span>.</p><br></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/r-4.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">sofa</span>, <span style="color:brown">walk</span> to the <span style="color:deepskyblue">door</span>, then <span style="color:brown">sit</span> back down on the <span style="color:deepskyblue">sofa</span>.</p></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/r-5.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">bed</span> and <span style="color:brown">walk</span> over to the <span style="color:deepskyblue">chair</span>, then <span style="color:brown">sit</span> down on <span style="color:deepskyblue">it</span>.</p></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/r-6.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-centered">
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Walk</span> over to the <span style="color:deepskyblue">bed</span> and <span style="color:brown">sit</span> down on <span style="color:deepskyblue">it</span>.</p><br></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/p-1.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">sofa</span>, <span style="color:brown">walk</span> to the <span style="color:deepskyblue">door</span>, then <span style="color:brown">sit</span> back down on the <span style="color:deepskyblue">sofa</span>.</p></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/p-2.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">bed</span> and <span style="color:brown">walk</span> over to the <span style="color:deepskyblue">chair</span>, then <span style="color:brown">sit</span> down on <span style="color:deepskyblue">it</span>.</p></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/p-3.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-centered">
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">sofa</span> and <span style="color:brown">go</span> out.</p><br></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/p-4.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Walk</span> over to the <span style="color:deepskyblue">bed</span> and <span style="color:brown">sit</span> down on <span style="color:deepskyblue">it</span>.</p><br></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/p-5.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="column">
+                <div id="video-container">
+                    <center><p><span style="color:brown">Stand</span> up from the <span style="color:deepskyblue">sofa</span> and <span style="color:brown">walk</span> over to the <span style="color:deepskyblue">chair</span>, then <span style="color:brown">sit</span> down on <span style="color:deepskyblue">it</span>.</p></center>
+                    <video id="video" autoplay controls muted loop playsinline height="20%">
+                        <source src="./static/videos/p-6.mp4#t=0.01"
+                              type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
-<!-- End youtube video -->
 
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
 
 
 <!--BibTex citation -->
@@ -291,7 +321,7 @@
         <div class="content">
 
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
@@ -303,7 +333,7 @@
 </footer>
 
 <!-- Statcounter tracking code -->
-  
+
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
